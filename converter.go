@@ -11,6 +11,10 @@ import (
 
 type Converter func(string) reflect.Value
 
+// Custom mapper for struct field names to form fields. It will be called if alias is empty. Mapper func gets
+// name of the struct field and returns name of the corresponding form field.
+type FieldNameMapper func(string) string
+
 var (
 	invalidValue = reflect.Value{}
 	boolType     = reflect.Bool
